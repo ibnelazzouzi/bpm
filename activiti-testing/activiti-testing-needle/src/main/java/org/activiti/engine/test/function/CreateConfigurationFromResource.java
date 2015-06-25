@@ -39,16 +39,12 @@ public enum CreateConfigurationFromResource implements Supplier<ProcessEngineCon
     }
   }
 
-  private final Supplier<ProcessEngineConfiguration> camundaCfgXmlSupplier = new ConfigurationSupplier("camunda.cfg.xml");
 
   private final Supplier<ProcessEngineConfiguration> activitiCfgXmlSupplier = new ConfigurationSupplier("activiti.cfg.xml");
 
   @Override
   public ProcessEngineConfiguration get() {
-    ProcessEngineConfiguration configuration = camundaCfgXmlSupplier.get();
-    if (configuration == null) {
-      configuration = activitiCfgXmlSupplier.get();
-    }
+    ProcessEngineConfiguration configuration = activitiCfgXmlSupplier.get();
     if (configuration == null) {
       configuration = MostUsefulProcessEngineConfiguration.SUPPLIER.get();
     }

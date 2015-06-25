@@ -52,7 +52,7 @@ public class ActivitiSupport implements InjectionProvider<ActivitiSupport> {
 	 */
 	public ActivitiSupport(final ProcessEngine processEngine) {
 		this.processEngine = processEngine;
-		this.logger.debug("Camunda Support created.");
+		this.logger.debug("Activiti Support created.");
 	}
 
 	/**

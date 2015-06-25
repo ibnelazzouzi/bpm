@@ -40,7 +40,7 @@ public class ActivitiSteps {
 	public void cleanUp() {
 		LOG.debug("Cleaning up after story run.");
 		Mocks.reset();
-		this.support.undeploy();
+		//this.support.undeploy();
 		this.support.resetClock();
 		ProcessEngineAssertions.reset();
 	}

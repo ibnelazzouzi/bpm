@@ -1,0 +1,174 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.activiti</groupId>
+	<artifactId>activiti-testing</artifactId>
+	<version>1.0.0.Alpha1</version>
+	<packaging>pom</packaging>
+	<name>Activiti Testing</name>
+
+	<modules>
+		<module>activiti-testing-assert</module>
+		<module>activiti-testing-needle</module>
+		<module>activiti-testing-jbehave</module>
+		<module>activiti-testing-examples</module>
+	</modules>
+
+	<properties>
+		<slf4j.version>1.7.12</slf4j.version>
+
+		<activiti.version>5.16.4</activiti.version>
+		<jbehave.version>3.9.3</jbehave.version>
+
+		<mockito.version>1.9.5</mockito.version>
+		<junit.version>4.11</junit.version>
+		<assertj.version>1.7.0</assertj.version>
+		<fasterxml.uuid.version>3.1.3</fasterxml.uuid.version>
+		<needle4j.version>2.3</needle4j.version>
+		<hamcrest.version>1.3</hamcrest.version>
+		<guava.version>14.0.1</guava.version>
+		<commons-lang3.version>3.1</commons-lang3.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+		<!-- Project dependencies -->
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-testing-assert</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-testing-jbehave</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-testing-needle</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			
+		<!-- Activiti dependencies -->
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-engine</artifactId>
+				<version>${activiti.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-spring</artifactId>
+				<version>${activiti.version}</version>
+			</dependency>
+		<!-- Jbehave dependencies -->
+			<dependency>
+				<groupId>org.jbehave</groupId>
+				<artifactId>jbehave-needle</artifactId>
+				<version>${jbehave.version}</version>
+			</dependency>
+			<!-- Testing tools dependencies -->
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>${mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.assertj</groupId>
+				<artifactId>assertj-core</artifactId>
+				<version>${assertj.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.uuid</groupId>
+				<artifactId>java-uuid-generator</artifactId>
+				<version>${fasterxml.uuid.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest-core</artifactId>
+				<version>${hamcrest.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest-library</artifactId>
+				<version>${hamcrest.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>6.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.needle4j</groupId>
+				<artifactId>needle4j</artifactId>
+				<version>${needle4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>1.3.168</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+            
+		<!-- Logging dependencies -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jul-to-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<compilerArguments>
+							<g />
+						</compilerArguments>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>

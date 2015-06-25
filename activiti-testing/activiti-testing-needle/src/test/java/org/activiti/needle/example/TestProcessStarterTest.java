@@ -1,6 +1,6 @@
-package org.camunda.bpm.needle.example;
+package org.activiti.needle.example;
 
-import static org.camunda.bpm.needle.example.TestProcessStarterBean.variablesStartedByUser;
+import static org.activiti.needle.example.TestProcessStarterBean.variablesStartedByUser;
 import static org.mockito.Mockito.verify;
 import static org.needle4j.junit.NeedleBuilders.needleRule;
 

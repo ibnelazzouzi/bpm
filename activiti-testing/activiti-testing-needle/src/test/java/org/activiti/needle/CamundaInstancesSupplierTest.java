@@ -1,4 +1,4 @@
-package org.camunda.bpm.needle;
+package org.activiti.needle;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;

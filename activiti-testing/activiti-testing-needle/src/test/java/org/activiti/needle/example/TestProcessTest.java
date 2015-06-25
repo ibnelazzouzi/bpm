@@ -1,4 +1,4 @@
-package org.camunda.bpm.needle.example;
+package org.activiti.needle.example;
 
 import java.util.UUID;
 
@@ -11,9 +11,9 @@ import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.activiti.engine.test.Deployment;
 import org.activiti.engine.test.mock.Mocks;
+import org.activiti.needle.ProcessEngineNeedleRule;
 import org.activiti.testing.assertions.ProcessEngineTests;
 import org.assertj.core.api.Assertions;
-import org.camunda.bpm.extension.needle.ProcessEngineNeedleRule;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;

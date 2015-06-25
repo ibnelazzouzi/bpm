@@ -1,4 +1,4 @@
-package org.camunda.bpm.needle.example;
+package org.activiti.needle.example;
 
 import java.io.Serializable;
 import java.util.Map;

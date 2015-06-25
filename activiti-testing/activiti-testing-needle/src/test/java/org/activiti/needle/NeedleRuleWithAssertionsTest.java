@@ -1,9 +1,9 @@
-package org.camunda.bpm.extension.needle;
+package org.activiti.needle;
 
+import static org.activiti.needle.ProcessEngineNeedleRule.fluentNeedleRule;
 import static org.activiti.testing.assertions.ProcessEngineAssertions.assertThat;
 import static org.activiti.testing.assertions.ProcessEngineTests.claim;
 import static org.activiti.testing.assertions.ProcessEngineTests.task;
-import static org.camunda.bpm.extension.needle.ProcessEngineNeedleRule.fluentNeedleRule;
 
 import javax.inject.Inject;
 
@@ -11,6 +11,7 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.test.Deployment;
+import org.activiti.needle.ProcessEngineNeedleRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.bridge.SLF4JBridgeHandler;

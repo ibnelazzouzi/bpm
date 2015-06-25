@@ -20,7 +20,7 @@ import org.activiti.engine.test.Deployment;
 import org.activiti.engine.test.mock.Mocks;
 import org.activiti.jbehave.example.simple.SimpleProcessAdapter;
 import org.activiti.jbehave.example.simple.SimpleProcessConstants;
-import org.camunda.bpm.extension.needle.ProcessEngineNeedleRule;
+import org.activiti.needle.ProcessEngineNeedleRule;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

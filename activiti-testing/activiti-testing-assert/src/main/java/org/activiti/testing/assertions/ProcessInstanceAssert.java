@@ -23,11 +23,11 @@ import org.activiti.engine.runtime.JobQuery;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.runtime.ProcessInstanceQuery;
 import org.activiti.engine.task.TaskQuery;
+import org.activiti.testing.assertions.util.HistoricActivityInstanceComparator;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.ListAssert;
 import org.assertj.core.api.MapAssert;
 import org.assertj.core.util.Lists;
-import org.camunda.bpm.engine.test.util.HistoricActivityInstanceComparator;
 
 /**
  * Assertions for a {@link ProcessInstance}

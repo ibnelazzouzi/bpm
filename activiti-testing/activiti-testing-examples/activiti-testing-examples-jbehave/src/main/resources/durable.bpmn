@@ -13,7 +13,7 @@
     <bpmn2:sequenceFlow id="flow_start_load" name="" sourceRef="start_process" targetRef="service_load_contract_data"/>
     <bpmn2:serviceTask id="service_load_contract_data" camunda:expression="#{simpleProcessAdapter.loadContractData(execution)}" camunda:resultVariable="isAutomaticProcessing" name="Load&#xA;contract&#xA;data">
       <bpmn2:extensionElements>
-        <camunda:executionListener class="org.activiti.bdd.examples.simple.guard.AutomaticProcessingGuard" event="end"/>
+        <camunda:executionListener class="org.activiti.testing.jbehave.bdd.examples.simple.guard.AutomaticProcessingGuard" event="end"/>
       </bpmn2:extensionElements>
       <bpmn2:incoming>flow_start_load</bpmn2:incoming>
       <bpmn2:outgoing>flow_load_possible</bpmn2:outgoing>

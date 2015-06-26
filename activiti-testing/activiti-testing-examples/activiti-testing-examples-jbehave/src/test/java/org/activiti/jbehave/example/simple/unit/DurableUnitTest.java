@@ -11,7 +11,6 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
-import org.activiti.bdd.Slf4jLoggerRule;
 import org.activiti.engine.delegate.BpmnError;
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.runtime.ProcessInstance;
@@ -20,7 +19,8 @@ import org.activiti.engine.test.Deployment;
 import org.activiti.engine.test.mock.Mocks;
 import org.activiti.jbehave.example.simple.SimpleProcessAdapter;
 import org.activiti.jbehave.example.simple.SimpleProcessConstants;
-import org.activiti.needle.ProcessEngineNeedleRule;
+import org.activiti.testing.jbehave.bdd.Slf4jLoggerRule;
+import org.activiti.testing.needle.ProcessEngineNeedleRule;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

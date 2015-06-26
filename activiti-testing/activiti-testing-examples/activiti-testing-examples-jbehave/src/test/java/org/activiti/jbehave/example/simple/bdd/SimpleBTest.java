@@ -3,10 +3,10 @@ package org.activiti.jbehave.example.simple.bdd;
 import java.net.URL;
 import java.util.List;
 
-import org.activiti.bdd.JBehaveTestBase;
-import org.activiti.bdd.steps.ActivitiSteps;
 import org.activiti.jbehave.example.simple.steps.SimpleProcessSteps;
-import org.activiti.test.ActivitiSupport;
+import org.activiti.testing.jbehave.bdd.JBehaveTestBase;
+import org.activiti.testing.jbehave.bdd.steps.ActivitiSteps;
+import org.activiti.testing.jbehave.support.ActivitiSupport;
 import org.jbehave.core.annotations.UsingSteps;
 import org.jbehave.core.annotations.needle.UsingNeedle;
 

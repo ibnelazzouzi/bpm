@@ -4,7 +4,7 @@ import static org.activiti.testing.assertions.ProcessEngineAssertions.assertThat
 import static org.activiti.testing.assertions.ProcessEngineTests.complete;
 import static org.activiti.testing.assertions.ProcessEngineTests.task;
 import static org.activiti.testing.assertions.ProcessEngineTests.withVariables;
-import static org.activiti.test.ActivitiSupport.parseStatement;
+import static org.activiti.testing.jbehave.support.ActivitiSupport.parseStatement;
 import static org.mockito.Mockito.doThrow;
 
 import javax.inject.Inject;
@@ -17,7 +17,7 @@ import org.activiti.jbehave.example.simple.SimpleProcessConstants.Elements;
 import org.activiti.jbehave.example.simple.SimpleProcessConstants.Events;
 import org.activiti.jbehave.example.simple.SimpleProcessConstants.Variables;
 import org.activiti.jbehave.example.simple.unit.SimpleUnitTest;
-import org.activiti.test.ActivitiSupport;
+import org.activiti.testing.jbehave.support.ActivitiSupport;
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Given;

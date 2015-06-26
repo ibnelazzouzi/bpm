@@ -21,7 +21,7 @@ import org.activiti.testing.needle.engine.test.ChainedTestRule;
 import org.activiti.testing.needle.engine.test.ProcessEngineTestRule;
 import org.activiti.testing.needle.engine.test.ProcessEngineTestWatcher;
 import org.activiti.testing.needle.engine.test.function.GetProcessEngineConfiguration;
-import org.activiti.testing.needle.engine.test.needle.CamundaInstancesSupplier;
+import org.activiti.testing.needle.engine.test.needle.ActivitiInstancesSupplier;
 import org.junit.rules.RuleChain;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
@@ -60,7 +60,7 @@ public class ProcessEngineNeedleRule extends ChainedTestRule<NeedleTestRule, Pro
 
 	ProcessEngineNeedleRule(final Object testInstance, final ProcessEngine processEngine, final InjectionProviderInstancesSupplier additionalProvidersSupplier) {
 		// @formatter:off
-		super(needleMockitoTestRule(testInstance).addSupplier(new CamundaInstancesSupplier(processEngine)).addSupplier(additionalProvidersSupplier).build());
+		super(needleMockitoTestRule(testInstance).addSupplier(new ActivitiInstancesSupplier(processEngine)).addSupplier(additionalProvidersSupplier).build());
 		// @formatter:on
 		this.innerRule = new ProcessEngineTestWatcher(processEngine);
 	}

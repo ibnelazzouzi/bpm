@@ -16,7 +16,7 @@ import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.testing.needle.engine.test.function.CreateConfigurationFromResource;
-import org.activiti.testing.needle.engine.test.needle.CamundaInstancesSupplier;
+import org.activiti.testing.needle.engine.test.needle.ActivitiInstancesSupplier;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -28,7 +28,7 @@ public class ActivitiInstancesSupplierTest {
   public final ExpectedException thrown = ExpectedException.none();
 
   @Rule
-  public final NeedleRule needle = new NeedleRule(providersForInstancesSuppliers(new CamundaInstancesSupplier(
+  public final NeedleRule needle = new NeedleRule(providersForInstancesSuppliers(new ActivitiInstancesSupplier(
       CreateConfigurationFromResource.INSTANCE.buildProcessEngine())));
 
   @Inject

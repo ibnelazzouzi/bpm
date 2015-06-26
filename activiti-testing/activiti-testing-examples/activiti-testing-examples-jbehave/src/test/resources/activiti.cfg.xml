@@ -9,7 +9,7 @@
 		<property name="defaultAutoCommit" value="false" />
 	</bean>
 
-	<bean id="processEngineConfiguration" class="org.activiti.testing.needle.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
 		<property name="dataSource" ref="dataSource" />
 		<property name="history" value="activity" />
 		<property name="databaseSchemaUpdate" value="true" />

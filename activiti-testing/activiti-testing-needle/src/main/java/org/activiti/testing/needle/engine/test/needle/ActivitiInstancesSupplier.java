@@ -23,18 +23,18 @@ import org.needle4j.injection.InjectionProviderInstancesSupplier;
 import com.google.common.collect.Sets;
 
 /**
- * Supplier for camunda services. Holds processEngine internally and exposes all
+ * Supplier for activiti services. Holds processEngine internally and exposes all
  * services via {@link InjectionProvider}.
  * 
  * @author Jan Galinski, Holisticon AG
  */
-public class CamundaInstancesSupplier implements InjectionProviderInstancesSupplier, ProcessEngine {
+public class ActivitiInstancesSupplier implements InjectionProviderInstancesSupplier, ProcessEngine {
 
 	private final Set<InjectionProvider<?>> providers = Sets.newHashSet();
 
 	private final ProcessEngine processEngine;
 
-	public CamundaInstancesSupplier(final ProcessEngine processEngine) {
+	public ActivitiInstancesSupplier(final ProcessEngine processEngine) {
 		checkArgument(processEngine != null);
 		this.processEngine = processEngine;
 

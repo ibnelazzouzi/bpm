@@ -1,8 +1,8 @@
-package org.activiti.bdd.examples.simple.guard;
+package org.activiti.testing.examples.jbehave.bdd.simple.guard;
 
 
 import org.activiti.engine.delegate.DelegateExecution;
-import org.activiti.jbehave.example.simple.SimpleProcessConstants.Variables;
+import org.activiti.testing.examples.jbehave.simple.SimpleProcessConstants.Variables;
 import org.activiti.testing.jbehave.data.ActivityGuard;
 
 import static org.activiti.testing.jbehave.data.Guards.checkIsSet;

@@ -1,4 +1,4 @@
-package org.activiti.jbehave.example.simple;
+package org.activiti.testing.examples.jbehave.simple;
 
 import javax.inject.Named;
 

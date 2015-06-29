@@ -24,7 +24,7 @@ import org.junit.runner.RunWith;
 
 /**
  * Base class for JBehave tests.
- * 
+ *
  * @author Simon Zambrovski, holisticon AG
  */
 @RunWith(NeedleAnnotatedEmbedderRunner.class)
@@ -32,58 +32,57 @@ import org.junit.runner.RunWith;
 @Configure(stepMonitor = PrintStreamStepMonitor.class, pendingStepStrategy = FailingUponPendingStep.class, stepdocReporter = PrintStreamStepdocReporter.class, storyReporterBuilder = JBehaveTestBase.RichReporterBuilder.class)
 public abstract class JBehaveTestBase extends InjectableEmbedder {
 
-  private static final boolean REPORT_FAILURE_TRACE = false;
-  private static final boolean COMPRESS_FAILURE_TRACE = true;
-  static {
-    Slf4jLoggerRule.DEFAULT.before();
-  }
+	private static final boolean REPORT_FAILURE_TRACE = true;
+	private static final boolean COMPRESS_FAILURE_TRACE = true;
+	static {
+		Slf4jLoggerRule.DEFAULT.before();
+	}
 
-  /**
-   * Retrieves the location of the stories. <br>
-   * This method is intended to be overwritten on divergent location for stories
-   * than src/test/resources
-   * 
-   * @return location of the stories to look for.
-   */
-  protected URL getStoryLocation() {
-    return codeLocationFromPath("src/test/resources");
-  }
+	/**
+	 * Retrieves the location of the stories. <br>
+	 * This method is intended to be overwritten on divergent location for stories
+	 * than src/test/resources
+	 * 
+	 * @return location of the stories to look for.
+	 */
+	protected URL getStoryLocation() {
+		return codeLocationFromPath("src/test/resources");
+	}
 
-  /**
-   * Retrieves the location of the stories.
-   */
-  protected List<String> storyPaths() {
-    return new StoryFinder().findPaths(getStoryLocation(), "**/*.story", "");
-  }
+	/**
+	 * Retrieves the location of the stories.
+	 */
+	protected List<String> storyPaths() {
+		return new StoryFinder().findPaths(this.getStoryLocation(), "**/*.story", "");
+	}
 
-  @Override
-  @Test
-  public void run() {
-    injectedEmbedder().runStoriesAsPaths(storyPaths());
-  }
+	@Override
+	@Test
+	public void run() {
+		this.injectedEmbedder().runStoriesAsPaths(this.storyPaths());
+	}
 
-  /**
-   * Own report builder.
-   */
-  public static class RichReporterBuilder extends StoryReporterBuilder {
+	/**
+	 * Own report builder.
+	 */
+	public static class RichReporterBuilder extends StoryReporterBuilder {
 
-    /**
-     * Constructs the builder.
-     */
-    public RichReporterBuilder() {
-      withDefaultFormats().withViewResources(getViewResources()).withFormats(CONSOLE, HTML, XML).withFailureTrace(REPORT_FAILURE_TRACE)
-          .withFailureTraceCompression(COMPRESS_FAILURE_TRACE);
-    }
+		/**
+		 * Constructs the builder.
+		 */
+		public RichReporterBuilder() {
+			this.withDefaultFormats().withViewResources(getViewResources()).withFormats(CONSOLE, HTML, XML).withFailureTrace(REPORT_FAILURE_TRACE).withFailureTraceCompression(COMPRESS_FAILURE_TRACE);
+		}
 
-    /**
-     * Retrieves the configuration of the view.
-     */
-    final static Properties getViewResources() {
-      final Properties viewResources = new Properties();
-      viewResources.put("decorateNonHtml", "false");
-      return viewResources;
-    }
+		/**
+		 * Retrieves the configuration of the view.
+		 */
+		final static Properties getViewResources() {
+			final Properties viewResources = new Properties();
+			viewResources.put("decorateNonHtml", "false");
+			return viewResources;
+		}
 
-  }
+	}
 
 }

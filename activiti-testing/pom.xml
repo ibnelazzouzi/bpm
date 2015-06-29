@@ -11,6 +11,7 @@
 		<module>activiti-testing-needle</module>
 		<module>activiti-testing-jbehave</module>
 		<module>activiti-testing-examples</module>
+		<module>activiti-testing-tutorial</module>
 	</modules>
 
 	<properties>

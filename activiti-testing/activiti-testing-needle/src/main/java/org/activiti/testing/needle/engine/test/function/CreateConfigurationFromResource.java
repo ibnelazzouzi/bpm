@@ -15,48 +15,48 @@ import com.google.common.base.Supplier;
  * @author Jan Galinski, Holisticon AG
  */
 public enum CreateConfigurationFromResource implements Supplier<ProcessEngineConfiguration> {
-  INSTANCE;
+	INSTANCE;
 
-  /**
-   * Creates a new ProcessEngineConfiguration from source. Returns null if
-   * config can not be created (file does not exist).
-   */
-  private static class ConfigurationSupplier implements Supplier<ProcessEngineConfiguration> {
+	/**
+	 * Creates a new ProcessEngineConfiguration from source. Returns null if
+	 * config can not be created (file does not exist).
+	 */
+	private static class ConfigurationSupplier implements Supplier<ProcessEngineConfiguration> {
 
-    private final String cfgXmlFilename;
+		private final String cfgXmlFilename;
 
-    private ConfigurationSupplier(String cfgXmlFilename) {
-      this.cfgXmlFilename = cfgXmlFilename;
-    }
+		private ConfigurationSupplier(final String cfgXmlFilename) {
+			this.cfgXmlFilename = cfgXmlFilename;
+		}
 
-    @Override
-    public ProcessEngineConfiguration get() {
-      try {
-        return ProcessEngineConfiguration.createProcessEngineConfigurationFromResource(cfgXmlFilename);
-      } catch (Exception e) {
-        return null;
-      }
-    }
-  }
+		@Override
+		public ProcessEngineConfiguration get() {
+			try {
+				return ProcessEngineConfiguration.createProcessEngineConfigurationFromResource(this.cfgXmlFilename);
+			} catch (Exception e) {
+				//e.printStackTrace();
+				return null;
+			}
+		}
+	}
 
+	private final Supplier<ProcessEngineConfiguration> activitiCfgXmlSupplier = new ConfigurationSupplier("activiti.cfg.xml");
 
-  private final Supplier<ProcessEngineConfiguration> activitiCfgXmlSupplier = new ConfigurationSupplier("activiti.cfg.xml");
+	@Override
+	public ProcessEngineConfiguration get() {
+		ProcessEngineConfiguration configuration = this.activitiCfgXmlSupplier.get();
+		if (configuration == null) {
+			configuration = MostUsefulProcessEngineConfiguration.SUPPLIER.get();
+		}
 
-  @Override
-  public ProcessEngineConfiguration get() {
-    ProcessEngineConfiguration configuration = activitiCfgXmlSupplier.get();
-    if (configuration == null) {
-      configuration = MostUsefulProcessEngineConfiguration.SUPPLIER.get();
-    }
+		return configuration;
+	}
 
-    return configuration;
-  }
+	public ProcessEngine buildProcessEngine() {
+		return this.get().buildProcessEngine();
+	}
 
-  public ProcessEngine buildProcessEngine() {
-    return get().buildProcessEngine();
-  }
-
-  public ProcessEngineDelegate createProcessEngineDelegate(boolean eager) {
-    return new ProcessEngineDelegate(get(), eager);
-  }
+	public ProcessEngineDelegate createProcessEngineDelegate(final boolean eager) {
+		return new ProcessEngineDelegate(this.get(), eager);
+	}
 }

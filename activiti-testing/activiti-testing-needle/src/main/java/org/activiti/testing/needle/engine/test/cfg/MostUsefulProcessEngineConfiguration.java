@@ -12,7 +12,7 @@ import org.activiti.engine.test.mock.MockExpressionManager;
 import com.google.common.base.Supplier;
 
 /**
- * Configuration that makes the standard camunda.cfg.xml obsolete by setting the
+ * Configuration that makes the standard activiti.cfg.xml obsolete by setting the
  * history, schema and job-executor settings.
  */
 public class MostUsefulProcessEngineConfiguration extends StandaloneInMemProcessEngineConfiguration {

@@ -13,6 +13,7 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.repository.DeploymentBuilder;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.test.mock.Mocks;
+import org.activiti.testing.needle.engine.test.function.CreateConfigurationFromResource;
 import org.needle4j.injection.InjectionProvider;
 import org.needle4j.injection.InjectionTargetInformation;
 import org.slf4j.Logger;
@@ -41,7 +42,8 @@ public class ActivitiSupport implements InjectionProvider<ActivitiSupport> {
 	 * Create support component with default process engine.
 	 */
 	public ActivitiSupport() {
-		this(mostUsefulProcessEngineConfiguration().buildProcessEngine());
+		//this(mostUsefulProcessEngineConfiguration().buildProcessEngine());
+		this(CreateConfigurationFromResource.INSTANCE.buildProcessEngine());
 	}
 
 	/**
@@ -67,7 +69,6 @@ public class ActivitiSupport implements InjectionProvider<ActivitiSupport> {
 			deploymentBuilder.addClasspathResource(resource);
 		}
 		String id = deploymentBuilder.deploy().getId();
-		System.out.println("Deploy process: " + id);
 		this.deploymentIds.add(id);
 		this.getStartTime();
 	}

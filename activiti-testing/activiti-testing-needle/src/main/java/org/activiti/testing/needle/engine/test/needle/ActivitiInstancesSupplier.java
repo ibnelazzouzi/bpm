@@ -46,7 +46,6 @@ public class ActivitiInstancesSupplier implements InjectionProviderInstancesSupp
 		providers.add(providerForInstance(getHistoryService()));
 		providers.add(providerForInstance(getIdentityService()));
 		providers.add(providerForInstance(getManagementService()));
-		//providers.add(providerForInstance(getAuthorizationService()));
 		providers.add(providerForInstance(getCommandExecutor()));
 		providers.add(providerForInstance(getProcessEngineConfiguration()));
 	}
@@ -91,11 +90,6 @@ public class ActivitiInstancesSupplier implements InjectionProviderInstancesSupp
 		return processEngine.getManagementService();
 	}
 
-	//  @Override
-	//  public AuthorizationService getAuthorizationService() {
-	//    return processEngine.getAuthorizationService();
-	//  }
-
 	/**
 	 * @return the current configuration
 	 */
@@ -115,7 +109,6 @@ public class ActivitiInstancesSupplier implements InjectionProviderInstancesSupp
 	 */
 	public CommandExecutor getCommandExecutor() {
 		return ((ProcessEngineImpl) getProcessEngine()).getProcessEngineConfiguration().getCommandExecutor();
-		//getCommandExecutorSchemaOperations();
 	}
 
 	@Override
